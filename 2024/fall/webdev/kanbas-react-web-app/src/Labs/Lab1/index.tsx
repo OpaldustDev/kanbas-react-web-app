@@ -283,7 +283,7 @@ export default function Lab1() {
 
                     <h4>Anchor tag</h4>
                     Please
-                    <a id="wd-lipsum" href="https://www.lipsum.com">click here</a>
+                    <a id="wd-repo" href="https://github.com/OpaldustDev/WebdevRepo/tree/a1">click here</a>
                     to see this repo<br/>
                 </form>
             </div>
