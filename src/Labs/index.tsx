@@ -8,13 +8,17 @@ export default function Labs() {
         <div>
             <h1>Taksin Mann | Section 2</h1>
             <h1>Labs</h1>
-            <TOC />
+            Please
+            <a id="wd-repo" href="https://github.com/OpaldustDev/WebdevRepo/tree/a1">click here</a>
+            to see this repo<br/>
+            <TOC/>
             <Routes>
-                <Route path="/" element={<Navigate to="Lab1" />} />
-                <Route path="Lab1" element={<Lab1 />} />
-                <Route path="Lab2" element={<Lab2 />} />
-                <Route path="Lab3" element={<Lab3 />} />
+                <Route path="/" element={<Navigate to="Lab1"/>}/>
+                <Route path="Lab1" element={<Lab1/>}/>
+                <Route path="Lab2" element={<Lab2/>}/>
+                <Route path="Lab3" element={<Lab3/>}/>
             </Routes>
+
         </div>
     );
 }
