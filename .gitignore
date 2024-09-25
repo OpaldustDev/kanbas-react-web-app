@@ -1,4 +1,2 @@
-
-.idea/.idea.WebdevRepo.dir/.idea/vcs.xml
-.idea/.idea.WebdevRepo.dir/.idea/projectSettingsUpdater.xml
-.idea/.idea.WebdevRepo.dir/.idea/indexLayout.xml
+.idea
+node_modules
