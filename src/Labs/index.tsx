@@ -7,7 +7,7 @@ export default function Labs() {
     return (
         <div>
             <h1>Taksin Mann | Section 2</h1>
-            <h1>Labs</h1>
+            <h1>Labss</h1>
             Please
             <a id="wd-repo" href="https://github.com/OpaldustDev/WebdevRepo/tree/a1">click here</a>
             to see this repo<br/>
