@@ -1,104 +1,89 @@
 export default function AssignmentEditor() {
     return (
-        <div id="wd-assignments-editor">
-            <label htmlFor="wd-name">Assignment Name</label>
-            <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
-            <textarea id="wd-description">
-        The assignment is available online Submit a link to the landing page of
-      </textarea>
-            <br />
-            <table>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-points">Points</label>
-                    </td>
-                    <td>
-                        <input id="wd-points" value={100}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-group">Assignment Group</label>
-                    </td>
-                    <td>
-                        <select id="wd-group">
+        <div id="wd-assignments-editor" className="p-4" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <form>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-name" className="col-sm-2 col-form-label">Assignment Name</label>
+                    <div className="col-sm-10">
+                        <input id="wd-name" className="form-control border" defaultValue="A1 - ENV + HTML" style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-description" className="col-sm-2 col-form-label">Description</label>
+                    <div className="col-sm-10">
+                        <textarea id="wd-description" className="form-control" style={{border: "1px solid lightgray"}}>
+                             The assignment is available online Submit a link to the landing page of
+                        </textarea>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-points" className="col-sm-2 col-form-label">Points</label>
+                    <div className="col-sm-10">
+                        <input id="wd-points" className="form-control" defaultValue={100} style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-group" className="col-sm-2 col-form-label">Assignment Group</label>
+                    <div className="col-sm-10">
+                        <select id="wd-group" className="form-control" style={{border: "1px solid lightgray"}}>
                             <option value="ASSIGNMENTS">ASSIGNMENTS</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-display-grade-as">Display Grade as</label>
-                    </td>
-                    <td>
-                        <select id="wd-display-grade-as">
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-display-grade-as" className="col-sm-2 col-form-label">Display Grade as</label>
+                    <div className="col-sm-10">
+                        <select id="wd-display-grade-as" className="form-control" style={{border: "1px solid lightgray"}}>
                             <option value="PERCENTAGE">PERCENTAGE</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-submission-type">Submission Type</label>
-                    </td>
-                    <td>
-                        <select id="wd-submission-type">
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-submission-type" className="col-sm-2 col-form-label">Submission Type</label>
+                    <div className="col-sm-10">
+                        <select id="wd-submission-type" className="form-control" style={{border: "1px solid lightgray"}}>
                             <option value="ONLINE">ONLINE</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-submission-type">Online Entry Options</label>
-                    </td>
-                    <td>
-                        <select id="wd-submission-type" multiple>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-online-entry-options" className="col-sm-2 col-form-label">Online Entry
+                        Options</label>
+                    <div className="col-sm-10">
+                        <select id="wd-online-entry-options" className="form-control" multiple style={{border: "1px solid lightgray"}}>
                             <option id={"wd-text-entry"} value="TEXT ENTRY">Text Entry</option>
                             <option id={"wd-website-url"} value="WEBSITE URL">Website URL</option>
                             <option id={"wd-media-recordings"} value="MEDIA RECORDINGS">Media Recordings</option>
                             <option id={"wd-student-annotation"} value="STUDENT ANNOTATION">Student Annotation</option>
                             <option id={"wd-file-upload"} value="FILE UPLOADS">File Uploads</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-assign-to">Assign Assign to</label>
-                    </td>
-                    <td>
-                        <input id="wd-assign-to" value={"Everyone"}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-due-date"> Due </label>
-                    </td>
-                    <td>
-                        <input type="date"
-                               id="wd-due-date"
-                               value="2024-05-13"/><br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-available-from"> Available from </label>
-                    </td>
-                    <td>
-                        <input type="date"
-                               id="wd-available-from"
-                               value="2024-05-13"/><br/>
-                    </td>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-available-until"> Until </label>
-                    </td>
-                    <td>
-                        <input type="date"
-                               id="wd-available-until"
-                               value="2024-05-13"/><br/>
-                    </td>
-                </tr>
-                {/* Complete on your own */}
-            </table>
-            
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-assign-to" className="col-sm-2 col-form-label">Assign</label>
+                    <div className="col-sm-10">
+                        <input id="wd-assign-to" className="form-control" defaultValue={"Everyone"} style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-due-date" className="col-sm-2 col-form-label">Due</label>
+                    <div className="col-sm-10">
+                        <input type="date" id="wd-due-date" className="form-control" defaultValue="2024-05-13" style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-available-from" className="col-sm-2 col-form-label">Available from</label>
+                    <div className="col-sm-10">
+                        <input type="date" id="wd-available-from" className="form-control" defaultValue="2024-05-13" style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label htmlFor="wd-available-until" className="col-sm-2 col-form-label">Until</label>
+                    <div className="col-sm-10">
+                        <input type="date" id="wd-available-until" className="form-control" defaultValue="2024-05-13" style={{border: "1px solid lightgray"}}/>
+                    </div>
+                </div>
+            </form>
         </div>
     );
 }
