@@ -1,9 +1,16 @@
-import { ReactElement, JSXElementConstructor, ReactNode } from "react";
-import {BsGripVertical, BsPlus, BsSearch} from "react-icons/bs";
-import {LiaPaperPlane} from "react-icons/lia";
+import { ReactElement } from "react";
+import { BsGripVertical, BsPlus, BsSearch } from "react-icons/bs";
+import { Link, useParams } from "react-router-dom";
 import LessonControlButtons from "../Modules/LessonControlButtons";
+import * as db from "../../Database";
 
 export default function Assignments() {
+    // Get course id from route params
+    const { cid } = useParams<{ cid?: string }>();
+
+    // Filter assignments for the current course
+    const assignments = db.assignments.filter((assignment) => assignment.course === cid);
+
     return (
         <div className="mt-5">
             <div className="d-flex justify-content-between align-items-center mb-3">
@@ -21,22 +28,25 @@ export default function Assignments() {
                 <BsPlus/>
             </h3>
             <ul className="list-group">
-                {renderAssignmentItem("A1 - ENV + HTML", "Not available until May 6 at 12:00 AM | Due May 13 at 11:59pm | 100 pts")}
-                {renderAssignmentItem("A2 - CSS + BOOTSTRAP", "Not available until May 13 at 12:00 AM | Due May 20 at 11:59pm | 100 pts")}
-                {renderAssignmentItem("A3 - JAVASCRIPT + REACT", "Not available until May 20 at 12:00 AM | Due May 27 at 11:59pm | 100 pts")}
+                {assignments.map(({ title, _id }) =>
+                    renderAssignmentItem(title, _id, cid))}
             </ul>
         </div>
     );
 }
 
-function renderAssignmentItem(title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined, subText: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined) {
+function renderAssignmentItem(title: string, id: string, cid: string | undefined) {
+    const subText = "Not available until May 6 at 12:00 AM | Due May 13 at 11:59pm | 100 pts";
     return (
         <li className="list-group-item pl-3" style={{ borderLeft: '2px solid green' }}>
             <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center">
                     <BsGripVertical className="me-2 fs-3" />
-                    <LiaPaperPlane className="wd-fg-color-green bold"/>
-                    <a className="ml-2 wd-assignment-link p-3 ps-1 text-black" href="#/Kanbas/Courses/1234/Assignments/123" style={{ textDecoration: 'none' }}>{title}</a>
+                    <Link className="ml-2 wd-assignment-link p-3 ps-1 text-black"
+                          to={`/Kanbas/Courses/${encodeURIComponent(cid as string)}/Assignments/${encodeURIComponent(id)}`}
+                          style={{ textDecoration: 'none' }}>
+                        {title}
+                    </Link>
                 </div>
                 <LessonControlButtons />
             </div>
