@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 export default function CoursesNavigation() {
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
+    const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
     return (
         <div id="wd-courses-navigation">
         <Link id="wd-course-home-link"    to="/Kanbas/Courses/1234/Home">Home</Link><br/>

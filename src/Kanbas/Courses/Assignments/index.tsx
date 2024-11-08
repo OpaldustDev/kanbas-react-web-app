@@ -1,16 +1,20 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { BsGripVertical, BsPlus, BsSearch } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import LessonControlButtons from "../Modules/LessonControlButtons";
 import * as db from "../../Database";
+import ModulesControls from "../Modules/ModulesControls";
 
 export default function Assignments() {
+    
+    
     // Get course id from route params
     const { cid } = useParams<{ cid?: string }>();
 
     // Filter assignments for the current course
     const assignments = db.assignments.filter((assignment) => assignment.course === cid);
 
+    
     return (
         <div className="mt-5">
             <div className="d-flex justify-content-between align-items-center mb-3">
@@ -48,7 +52,7 @@ function renderAssignmentItem(title: string, id: string, cid: string | undefined
                         {title}
                     </Link>
                 </div>
-                <LessonControlButtons />
+                
             </div>
             <div className="ml-5 p-3 ps-1">
                 <small>{subText}</small>

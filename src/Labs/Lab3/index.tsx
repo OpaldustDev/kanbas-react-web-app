@@ -32,50 +32,65 @@ import TodoItem from "./todos/TodoItem";
 import TodoList from "./todos/TodoList";
 import Square from "./Square";
 import Highlight from "./Highlight";
+import { useSelector } from "react-redux";
+
 export default function Lab3() {
     console.log('Hello World!');
-    return(
-        <div id="wd-lab3">
-            <h3>Lab 3</h3>
-            <VariablesAndConstants/>
-            <Add a={3} b={4}/>
-            <AddPathParameters />
-            <ArrayIndexAndLength />
-            <ArrowFunctions />
-            <BooleanVariables />
-            <Classes />
-            <ConditionalOutputIfElse />
-            <ConditionalOutputInLine />
-            <Destructing />
-            <DestructingImports />
-            <FilterFunction />
-            <FindFunction />
-            <FindIndex />
-            <ForLoops />
-            <FunctionDestructing />
-            <House />
-            <IfElse />
-            <ImpliedReturn />
-            <JsonStringify />
-            <LegacyFunctions />
-            <MapFunction />
-            <PathParameters />
-            <SimpleArrays />
-            <Spreading />
-            <Styles />
-            <TemplateLiterals />
-            <TernaryOperator />
-            <VariableTypes />
-            <TodoItem />
-            <TodoList />
-            <h4>Square of 4</h4>
-            <Square>4</Square>
-            <Highlight>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit ratione eaque illo minus cum, saepe totam
-                vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
-            </Highlight>
-            <hr/>
-            <AddingAndRemovingToFromArrays />
-        </div>
-    );
+        const { todos } = useSelector((state: any) => state.todosReducer);
+
+        return(
+            <div id="wd-lab3">
+                    <h3>Lab 3</h3>
+                    <ul className="list-group">
+                            {todos.map((todo: any) => (
+                                <li className="list-group-item" key={todo.id}>
+                                        {todo.title}
+                                </li>
+                            ))}
+                    </ul>
+                    <hr/>
+
+                    <VariablesAndConstants/>
+                    <Add a={3} b={4}/>
+                    <AddPathParameters/>
+                    <ArrayIndexAndLength/>
+                    <ArrowFunctions/>
+                    <BooleanVariables/>
+                    <Classes/>
+                    <ConditionalOutputIfElse/>
+                    <ConditionalOutputInLine/>
+                    <Destructing/>
+                    <DestructingImports/>
+                    <FilterFunction/>
+                    <FindFunction/>
+                    <FindIndex/>
+                    <ForLoops/>
+                    <FunctionDestructing/>
+                    <House/>
+                    <IfElse/>
+                    <ImpliedReturn/>
+                    <JsonStringify/>
+                    <LegacyFunctions/>
+                    <MapFunction/>
+                    <PathParameters/>
+                    <SimpleArrays/>
+                    <Spreading/>
+                    <Styles/>
+                    <TemplateLiterals/>
+                    <TernaryOperator/>
+                    <VariableTypes/>
+                    <TodoItem/>
+                    <TodoList/>
+                    <h4>Square of 4</h4>
+                    <Square>4</Square>
+                    <Highlight>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit ratione eaque illo minus
+                            cum, saepe totam
+                            vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores,
+                            provident voluptates.
+                    </Highlight>
+                    <hr/>
+                    <AddingAndRemovingToFromArrays/>
+            </div>
+        );
 }
